@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ROK.Reflection.FastMembers
+﻿namespace ROK.Reflection.FastMembers
 {
     public interface IFastGetter : IMember
     {
