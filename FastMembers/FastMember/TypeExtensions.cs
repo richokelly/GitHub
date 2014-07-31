@@ -98,7 +98,7 @@ namespace ROK.Reflection.FastMembers
         {
             var instance = Expression.Parameter(typeof(object));
             var value = Expression.Parameter(typeof(object));
-            var setter = Expression.Field(Expression.Convert(instance, field.DeclaringType), field);
+            var setter = Expression.Assign(Expression.Field(Expression.Convert(instance, field.DeclaringType), field), Expression.Convert(value, field.FieldType));
             var cast = Expression.Convert(setter, typeof(object));
 
             return new FastSetter(Expression.Lambda<Func<object, object, object>>(cast, instance, value).Compile())
